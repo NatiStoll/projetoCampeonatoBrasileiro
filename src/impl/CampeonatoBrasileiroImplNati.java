@@ -88,7 +88,7 @@ public class CampeonatoBrasileiroImplNati {
                             .map(jogo -> jogo.mandantePlacar() < jogo.visitantePlacar() ? 0 : jogo.mandantePlacar() > jogo.visitantePlacar() ? 3 : 1)
                             .reduce(0, (a, b) -> a + b);
                     Integer criterio2_Vitorias = (int) jogosDoTime.stream().filter(jogo -> jogo.mandantePlacar() > jogo.visitantePlacar()).count();
-                    return Map.entry(timealvo, new Criterio(criterio2_Vitorias, criterio2_Vitorias));
+                    return Map.entry(timealvo, new Criterio(criterio1_Pontos, criterio2_Vitorias));
                 })
 //                .sorted((t1, t2) -> t1.getValue().pontuacaoTotal() - t2.getValue().pontuacaoTotal())
                 .sorted(Comparator.comparingInt(t -> t.getValue().pontuacaoTotal()))
